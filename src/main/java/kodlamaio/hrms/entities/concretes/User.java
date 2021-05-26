@@ -1,12 +1,37 @@
 package kodlamaio.hrms.entities.concretes;
 
-import kodlamaio.hrms.entities.abstracts.Entity;
+import javax.persistence.*;
 
-public class User implements Entity {
+
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.NoArgsConstructor;
+
+
+@Data
+@Entity
+@Table(name="users")
+@AllArgsConstructor
+@NoArgsConstructor
+@Inheritance(strategy = InheritanceType.JOINED)
+
+public class User{
+	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	
-	int id;
-	int user_no;
-	String email;
-	String password;
+	@Column(name="id")
+	private int id;
+	
+	@Column(name="user_no")
+	private int user_no;
+	
+	@Column(name="email")
+	private String email;
+	
+	@Column(name="password")
+	private String password;
+	
+	@Column(name="password_validate")
+	private String password_validate;
 
 }
