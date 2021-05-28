@@ -29,8 +29,8 @@ public class EmployerManager implements EmployerService {
 
 	@Override
 	public Result add(Employer employer) {
-		if (employer.getWebsite()!="" && employer.getCompany_name()!= "" && employer.getPassword() != ""
-				&& employer.getPassword_validate() != "" && employer.getTelno() !=""
+		if (employer.getWebSite()!="" && employer.getCompanyName()!= "" && employer.getPassword() != ""
+				&& employer.getPasswordValidate() != "" && employer.getTelno() !=""
 				&& employer.getEmail() != "") {
 
 			
@@ -40,7 +40,7 @@ public class EmployerManager implements EmployerService {
 			}
 			
 			String[] emailDomain = employer.getEmail().split("@");
-			String[] webDomain = employer.getWebsite().split("www.");
+			String[] webDomain = employer.getWebSite().split("www.");
 
 			
 			System.out.println(emailDomain[1]);

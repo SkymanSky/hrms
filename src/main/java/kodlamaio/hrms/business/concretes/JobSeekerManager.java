@@ -37,7 +37,7 @@ public class JobSeekerManager implements JobSeekerService {
 
 		if (jobSeeker.getFirst_name() != "" && jobSeeker.getLast_name() != ""
 				&& jobSeeker.getBirth_date().toLocaleString() != "" && jobSeeker.getTcno() != ""
-				&& jobSeeker.getPassword() != "" && jobSeeker.getPassword_validate() != "") {
+				&& jobSeeker.getPassword() != "" && jobSeeker.getPasswordValidate() != "") {
 
 			if (this.findByEmail(jobSeeker).getData() != null) {
 				return new ErrorResult("Your email is in the system.");

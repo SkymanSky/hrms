@@ -23,7 +23,7 @@ public class User{
 	private int id;
 	
 	@Column(name="user_no")
-	private int user_no;
+	private int userNo;
 	
 	@Column(name="email")
 	private String email;
@@ -32,6 +32,6 @@ public class User{
 	private String password;
 	
 	@Column(name="password_validate")
-	private String password_validate;
+	private String passwordValidate;
 
 }

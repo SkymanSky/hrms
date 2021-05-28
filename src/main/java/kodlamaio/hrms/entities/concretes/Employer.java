@@ -11,50 +11,50 @@ import javax.persistence.Table;
 public class Employer extends User{
 	
 	@Column(name="user_id",insertable = false,updatable = false)
-	private int user_id;
+	private int userId;
 	
 	@Column(name="company_name")
-	private String company_name;
+	private String companyName;
 	
 	@Column(name="web_site")
-	private String web_site;
+	private String webSite;
 	
 	@Column(name="telno")
 	private String telno;
 	
 	public Employer() {}
 
-	public Employer(int id, int user_no, String email, String password, String password_validate, int user_id,
-			String company_name, String web_site, String telno) {
-		super(id, user_no, email, password, password_validate);
-		this.user_id = user_id;
-		this.company_name = company_name;
-		this.web_site = web_site;
+	public Employer(int id, int userNo, String email, String password, String passwordValidate, int userId,
+			String companyName, String webSite, String telno) {
+		super(id, userNo, email, password, passwordValidate);
+		this.userId = userId;
+		this.companyName = companyName;
+		this.webSite = webSite;
 		this.telno = telno;
 	}
 
-	public int getUser_id() {
-		return user_id;
+	public int getUserId() {
+		return userId;
 	}
 
-	public void setUser_id(int user_id) {
-		this.user_id = user_id;
+	public void setUserId(int userId) {
+		this.userId = userId;
 	}
 
-	public String getCompany_name() {
-		return company_name;
+	public String getCompanyName() {
+		return companyName;
 	}
 
-	public void setCompany_name(String company_name) {
-		this.company_name = company_name;
+	public void setCompanyName(String companyName) {
+		this.companyName = companyName;
 	}
 
-	public String getWebsite() {
-		return web_site;
+	public String getWebSite() {
+		return webSite;
 	}
 
-	public void setWebsite(String website) {
-		this.web_site = website;
+	public void setWebSite(String webSite) {
+		this.webSite = webSite;
 	}
 
 	public String getTelno() {
@@ -64,6 +64,8 @@ public class Employer extends User{
 	public void setTelno(String telno) {
 		this.telno = telno;
 	}
+
+	
 
 	
 }
