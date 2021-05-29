@@ -34,8 +34,8 @@ public class JobPosting {
 	//@Column(name="user_id")
 	//private int userId;
 	
-	@Column(name="position_id")
-	private int positionId;
+	//@Column(name="position_id")
+	//private int positionId;
 	
 	@Column(name="job_description")
 	private String jobDescription;
@@ -64,6 +64,10 @@ public class JobPosting {
 	@ManyToOne()
 	@JoinColumn(name="user_id")
 	private Employer employer;
+	
+	@ManyToOne()
+	@JoinColumn(name="position_id")
+	private Position position;
 	
 	
 }
