@@ -9,6 +9,8 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Inheritance;
 import javax.persistence.InheritanceType;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
 import lombok.AllArgsConstructor;
@@ -29,11 +31,11 @@ public class JobPosting {
 	@Column(name="id")
 	private int id;
 	
-	@Column(name="user_id")
-	private int userId;
+	//@Column(name="user_id")
+	//private int userId;
 	
-	@Column(name="position_id")
-	private int positionId;
+	//@Column(name="position_id")
+	//private int positionId;
 	
 	@Column(name="job_description")
 	private String jobDescription;
@@ -55,6 +57,17 @@ public class JobPosting {
 	
 	@Column(name="job_posting_status")
 	private boolean jobPostingStatus;
+	
+	@Column(name="job_post_date")
+	private Date jobPostDate;
+	
+	@ManyToOne()
+	@JoinColumn(name="user_id")
+	private Employer employer;
+	
+	@ManyToOne()
+	@JoinColumn(name="position_id")
+	private Position position;
 	
 	
 }

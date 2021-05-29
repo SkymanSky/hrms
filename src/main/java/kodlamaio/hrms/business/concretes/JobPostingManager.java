@@ -33,14 +33,20 @@ public class JobPostingManager implements JobPostingService {
 
 	@Override
 	public Result add(JobPosting jobPosting) {
-		if(jobPosting.getUserId()!=0 && jobPosting.getPositionId()!=0 && jobPosting.getJobDescription()!=""
-			&& jobPosting.getCityId()!=0 && jobPosting.getOpenPositionQuantity()!=0) {
+		if(jobPosting.getPositionId()!=0 && jobPosting.getJobDescription()!=""
+			&& jobPosting.getCityId()!=0 && jobPosting.getOpenPositionQuantity()!=0 && jobPosting.getJobPostDate()!=null) {
 			
 			this.jobPostingDao.save(jobPosting);
-			return new SuccessResult("JobPosting added to system");
+			return new SuccessResult("JobPosting added to system.");
 		}else {
 			return new ErrorResult("Please fill all required areas.");
 		}
+	}
+
+	@Override
+	public DataResult<List<JobPosting>> getByStatus(boolean jobPostingStatus) {
+		
+		return new SuccessDataResult<List<JobPosting>>(this.jobPostingDao.getByStatus(jobPostingStatus),"Job Positions Listed");
 	}
 	
 
