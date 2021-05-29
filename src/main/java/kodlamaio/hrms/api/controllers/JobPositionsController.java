@@ -41,4 +41,9 @@ public class JobPositionsController {
 		return this.jobPostingService.getByStatus(jobPostingStatus);
 	}
 	
+	@GetMapping("/getbyuseridstatusactive")
+	public DataResult<List<JobPosting>> getByUserIdStatusActive(int userId){
+		return this.jobPostingService.getByUserIdStatusActive(userId);
+	}
+	
 }

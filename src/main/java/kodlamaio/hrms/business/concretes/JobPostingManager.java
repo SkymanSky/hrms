@@ -33,7 +33,7 @@ public class JobPostingManager implements JobPostingService {
 
 	@Override
 	public Result add(JobPosting jobPosting) {
-		if(jobPosting.getPositionId()!=0 && jobPosting.getJobDescription()!=""
+		if(jobPosting.getJobDescription()!=""
 			&& jobPosting.getCityId()!=0 && jobPosting.getOpenPositionQuantity()!=0 && jobPosting.getJobPostDate()!=null) {
 			
 			this.jobPostingDao.save(jobPosting);
@@ -47,6 +47,12 @@ public class JobPostingManager implements JobPostingService {
 	public DataResult<List<JobPosting>> getByStatus(boolean jobPostingStatus) {
 		
 		return new SuccessDataResult<List<JobPosting>>(this.jobPostingDao.getByStatus(jobPostingStatus),"Job Positions Listed");
+	}
+
+	@Override
+	public DataResult<List<JobPosting>> getByUserIdStatusActive(int userId) {
+		//jobPostingStatus=true;
+		return new SuccessDataResult<List<JobPosting>>(this.jobPostingDao.getByUserIdStatusActive(userId),"Active Jobs Listed By Company Name");
 	}
 	
 

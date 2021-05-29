@@ -11,5 +11,8 @@ public interface JobPostingDao extends JpaRepository<JobPosting,Integer>{
 	
 	@Query("From JobPosting where jobPostingStatus=:jobPostingStatus")
 	List<JobPosting> getByStatus(boolean jobPostingStatus);
+	
+	@Query("From JobPosting where jobPostingStatus=true and employer.userId=:userId")
+	List<JobPosting> getByUserIdStatusActive(int userId);
 
 }
