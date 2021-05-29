@@ -76,6 +76,27 @@ public class JobPostingManager implements JobPostingService {
 	@Override
 	public DataResult<List<JobPosting>> getAllStatusIsActiveSortedByAsc() {
 		return new SuccessDataResult<List<JobPosting>>(this.jobPostingDao.getAllStatusIsActiveSortedByAsc(),"All Active Jobs Sorted By Job Post Date - Asc");
+		
+	}
+
+	@Override
+	public Result update(JobPosting jobPosting) {
+		// TODO Auto-generated method stub
+		jobPosting.setJobPostingStatus(false);
+		this.jobPostingDao.save(jobPosting);
+		return new SuccessResult("Job Posting updated - Status:Deactivated");
+	}
+
+	@Override
+	public Result updateById(int id) {
+		this.jobPostingDao.findById(id);
+		return null;
+	}
+
+	@Override
+	public Result updateJobPostingStatusToInactive(int id) {
+		this.jobPostingDao.updateJobPostingStatusToInactive(id);
+		return new SuccessResult("JobPosting is closed.");
 	}
 	
 
