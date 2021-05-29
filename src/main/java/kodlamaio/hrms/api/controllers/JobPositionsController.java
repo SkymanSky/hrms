@@ -68,8 +68,9 @@ public class JobPositionsController {
 		
 	}
 	
-	@PostMapping("/updatJobPostingStatusToInactive")
+	@PostMapping("/updateJobPostingStatusToInactive")
 	public Result updateJobPostingStatusToInactive(@RequestParam("id") int id) {
+		
 		return this.jobPostingService.updateJobPostingStatusToInactive(id);
 		
 	}
