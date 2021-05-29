@@ -36,4 +36,9 @@ public class JobPositionsController {
 		return this.jobPostingService.add(jobPosting);
 	}
 	
+	@GetMapping("/getbystatus")
+	public DataResult<List<JobPosting>> getByStatus(boolean jobPostingStatus){
+		return this.jobPostingService.getByStatus(jobPostingStatus);
+	}
+	
 }
