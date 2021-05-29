@@ -7,7 +7,10 @@ import org.springframework.stereotype.Service;
 
 import kodlamaio.hrms.business.abstracts.JobPostingService;
 import kodlamaio.hrms.core.utilities.results.DataResult;
+import kodlamaio.hrms.core.utilities.results.ErrorResult;
+import kodlamaio.hrms.core.utilities.results.Result;
 import kodlamaio.hrms.core.utilities.results.SuccessDataResult;
+import kodlamaio.hrms.core.utilities.results.SuccessResult;
 import kodlamaio.hrms.dataAccess.abstracts.JobPostingDao;
 import kodlamaio.hrms.entities.concretes.JobPosting;
 
@@ -26,6 +29,18 @@ public class JobPostingManager implements JobPostingService {
 	public DataResult<List<JobPosting>> getAll() {
 		
 		return new SuccessDataResult<List<JobPosting>>(this.jobPostingDao.findAll(),"Job Positions Listed");
+	}
+
+	@Override
+	public Result add(JobPosting jobPosting) {
+		if(jobPosting.getUserId()!=0 && jobPosting.getPositionId()!=0 && jobPosting.getJobDescription()!=""
+			&& jobPosting.getCityId()!=0 && jobPosting.getOpenPositionQuantity()!=0) {
+			
+			this.jobPostingDao.save(jobPosting);
+			return new SuccessResult("JobPosting added to system");
+		}else {
+			return new ErrorResult("Please fill all required areas.");
+		}
 	}
 	
 
