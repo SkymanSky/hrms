@@ -65,6 +65,7 @@ public class JobPositionsController {
 	@GetMapping("/getbyuseridstatusactive")
 	public DataResult<List<JobPosting>> getByUserIdStatusActive(int userId){
 		return this.jobPostingService.getByUserIdStatusActive(userId);
+		
 	}
 	
 	@PostMapping("/updatJobPostingStatusToInactive")
