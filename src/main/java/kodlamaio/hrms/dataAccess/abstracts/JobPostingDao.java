@@ -24,7 +24,6 @@ public interface JobPostingDao extends JpaRepository<JobPosting,Integer>{
 	@Query("From JobPosting where jobPostingStatus=true order by jobPostDate ASC")
 	List<JobPosting> getAllStatusIsActiveSortedByAsc();
 	
-	
 	@Transactional
     @Modifying
 	@Query("Update JobPosting set jobPostingStatus=false where id=:id")

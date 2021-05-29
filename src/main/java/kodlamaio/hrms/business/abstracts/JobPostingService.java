@@ -9,7 +9,6 @@ import kodlamaio.hrms.entities.concretes.JobPosting;
 public interface JobPostingService {
 	Result add(JobPosting jobPosting);
 	Result update(JobPosting jobPosting);
-	Result updateById(int id);
 	Result updateJobPostingStatusToInactive(int id);
 	DataResult<List<JobPosting>> getAll();
 	DataResult<List<JobPosting>> getAllSortedDesc();

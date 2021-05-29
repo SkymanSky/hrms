@@ -81,17 +81,12 @@ public class JobPostingManager implements JobPostingService {
 
 	@Override
 	public Result update(JobPosting jobPosting) {
-		// TODO Auto-generated method stub
+		
 		jobPosting.setJobPostingStatus(false);
 		this.jobPostingDao.save(jobPosting);
 		return new SuccessResult("Job Posting updated - Status:Deactivated");
 	}
 
-	@Override
-	public Result updateById(int id) {
-		this.jobPostingDao.findById(id);
-		return null;
-	}
 
 	@Override
 	public Result updateJobPostingStatusToInactive(int id) {
