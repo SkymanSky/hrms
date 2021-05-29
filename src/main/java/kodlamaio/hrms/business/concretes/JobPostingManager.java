@@ -3,6 +3,7 @@ package kodlamaio.hrms.business.concretes;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Service;
 
 import kodlamaio.hrms.business.abstracts.JobPostingService;
@@ -53,6 +54,18 @@ public class JobPostingManager implements JobPostingService {
 	public DataResult<List<JobPosting>> getByUserIdStatusActive(int userId) {
 		//jobPostingStatus=true;
 		return new SuccessDataResult<List<JobPosting>>(this.jobPostingDao.getByUserIdStatusActive(userId),"Active Jobs Listed By Company Name");
+	}
+
+	@Override
+	public DataResult<List<JobPosting>> getAllSortedDesc() {
+		Sort sort = Sort.by(Sort.Direction.DESC,"jobPostDate");
+		return new SuccessDataResult<List<JobPosting>>(this.jobPostingDao.findAll(sort),"Başarılı");
+	}
+	
+	@Override
+	public DataResult<List<JobPosting>> getAllSortedAsc() {
+		Sort sort = Sort.by(Sort.Direction.ASC,"jobPostDate");
+		return new SuccessDataResult<List<JobPosting>>(this.jobPostingDao.findAll(sort),"Başarılı");
 	}
 	
 

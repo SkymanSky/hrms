@@ -9,6 +9,8 @@ import kodlamaio.hrms.entities.concretes.JobPosting;
 public interface JobPostingService {
 	Result add(JobPosting jobPosting);
 	DataResult<List<JobPosting>> getAll();
+	DataResult<List<JobPosting>> getAllSortedDesc();
+	DataResult<List<JobPosting>> getAllSortedAsc();
 	DataResult<List<JobPosting>> getByStatus(boolean jobPostingStatus);
 	DataResult<List<JobPosting>> getByUserIdStatusActive(int userId);
 }

@@ -31,6 +31,16 @@ public class JobPositionsController {
 		return this.jobPostingService.getAll();
 	}
 	
+	@GetMapping("/getallasc")
+	public DataResult<List<JobPosting>> getAllSortedAsc(){
+		return this.jobPostingService.getAllSortedAsc();
+	}
+	
+	@GetMapping("/getalldesc")
+	public DataResult<List<JobPosting>> getAllSortedDesc(){
+		return this.jobPostingService.getAllSortedDesc();
+	}
+	
 	@PostMapping("/add")
 	public Result add(@RequestBody JobPosting jobPosting) {
 		return this.jobPostingService.add(jobPosting);
