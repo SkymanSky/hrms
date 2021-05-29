@@ -56,5 +56,8 @@ public class JobPosting {
 	@Column(name="job_posting_status")
 	private boolean jobPostingStatus;
 	
+	@Column(name="job_post_date")
+	private Date jobPostDate;
+	
 	
 }

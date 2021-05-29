@@ -34,7 +34,7 @@ public class JobPostingManager implements JobPostingService {
 	@Override
 	public Result add(JobPosting jobPosting) {
 		if(jobPosting.getUserId()!=0 && jobPosting.getPositionId()!=0 && jobPosting.getJobDescription()!=""
-			&& jobPosting.getCityId()!=0 && jobPosting.getOpenPositionQuantity()!=0) {
+			&& jobPosting.getCityId()!=0 && jobPosting.getOpenPositionQuantity()!=0 && jobPosting.getJobPostDate()!=null) {
 			
 			this.jobPostingDao.save(jobPosting);
 			return new SuccessResult("JobPosting added to system");
