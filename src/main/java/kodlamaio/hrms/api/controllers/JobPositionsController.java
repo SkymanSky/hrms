@@ -40,10 +40,11 @@ public class JobPositionsController {
 	public DataResult<List<JobPosting>> getByStatus(boolean jobPostingStatus){
 		return this.jobPostingService.getByStatus(jobPostingStatus);
 	}
-	
+
 	@GetMapping("/getbyuseridstatusactive")
 	public DataResult<List<JobPosting>> getByUserIdStatusActive(int userId){
 		return this.jobPostingService.getByUserIdStatusActive(userId);
 	}
 	
+
 }

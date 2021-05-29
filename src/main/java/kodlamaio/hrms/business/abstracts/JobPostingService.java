@@ -10,5 +10,7 @@ public interface JobPostingService {
 	Result add(JobPosting jobPosting);
 	DataResult<List<JobPosting>> getAll();
 	DataResult<List<JobPosting>> getByStatus(boolean jobPostingStatus);
+
 	DataResult<List<JobPosting>> getByUserIdStatusActive(int userId);
+
 }
