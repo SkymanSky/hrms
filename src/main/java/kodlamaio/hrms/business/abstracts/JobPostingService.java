@@ -12,5 +12,7 @@ public interface JobPostingService {
 	DataResult<List<JobPosting>> getAllSortedDesc();
 	DataResult<List<JobPosting>> getAllSortedAsc();
 	DataResult<List<JobPosting>> getByStatus(boolean jobPostingStatus);
+	DataResult<List<JobPosting>> getAllStatusIsActiveSortedByDesc();
+	DataResult<List<JobPosting>> getAllStatusIsActiveSortedByAsc();
 	DataResult<List<JobPosting>> getByUserIdStatusActive(int userId);
 }

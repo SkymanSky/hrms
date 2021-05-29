@@ -59,13 +59,23 @@ public class JobPostingManager implements JobPostingService {
 	@Override
 	public DataResult<List<JobPosting>> getAllSortedDesc() {
 		Sort sort = Sort.by(Sort.Direction.DESC,"jobPostDate");
-		return new SuccessDataResult<List<JobPosting>>(this.jobPostingDao.findAll(sort),"Başarılı");
+		return new SuccessDataResult<List<JobPosting>>(this.jobPostingDao.findAll(sort),"All Jobs Sorted By Job Post Date - Desc");
 	}
 	
 	@Override
 	public DataResult<List<JobPosting>> getAllSortedAsc() {
 		Sort sort = Sort.by(Sort.Direction.ASC,"jobPostDate");
-		return new SuccessDataResult<List<JobPosting>>(this.jobPostingDao.findAll(sort),"Başarılı");
+		return new SuccessDataResult<List<JobPosting>>(this.jobPostingDao.findAll(sort),"All Jobs Sorted By Job Post Date - Asc");
+	}
+
+	@Override
+	public DataResult<List<JobPosting>> getAllStatusIsActiveSortedByDesc() {
+		return new SuccessDataResult<List<JobPosting>>(this.jobPostingDao.getAllStatusIsActiveSortedByDesc(),"All Active Jobs Sorted By Job Post Date - Desc");
+	}
+
+	@Override
+	public DataResult<List<JobPosting>> getAllStatusIsActiveSortedByAsc() {
+		return new SuccessDataResult<List<JobPosting>>(this.jobPostingDao.getAllStatusIsActiveSortedByAsc(),"All Active Jobs Sorted By Job Post Date - Asc");
 	}
 	
 

@@ -36,6 +36,16 @@ public class JobPositionsController {
 		return this.jobPostingService.getAllSortedAsc();
 	}
 	
+	@GetMapping("/getallactivedesc")
+	public DataResult<List<JobPosting>> getAllStatusIsActiveSortedByDesc(){
+		return this.jobPostingService.getAllStatusIsActiveSortedByDesc();
+	}
+	
+	@GetMapping("/getallactiveasc")
+	public DataResult<List<JobPosting>> getAllStatusIsActiveSortedByAsc(){
+		return this.jobPostingService.getAllStatusIsActiveSortedByAsc();
+	}
+	
 	@GetMapping("/getalldesc")
 	public DataResult<List<JobPosting>> getAllSortedDesc(){
 		return this.jobPostingService.getAllSortedDesc();

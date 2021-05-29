@@ -14,5 +14,11 @@ public interface JobPostingDao extends JpaRepository<JobPosting,Integer>{
 	
 	@Query("From JobPosting where jobPostingStatus=true and employer.userId=:userId")
 	List<JobPosting> getByUserIdStatusActive(int userId);
+	
+	@Query("From JobPosting where jobPostingStatus=true order by jobPostDate DESC")
+	List<JobPosting> getAllStatusIsActiveSortedByDesc();
+	
+	@Query("From JobPosting where jobPostingStatus=true order by jobPostDate ASC")
+	List<JobPosting> getAllStatusIsActiveSortedByAsc();
 
 }
