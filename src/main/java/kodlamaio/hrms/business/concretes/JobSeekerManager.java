@@ -14,6 +14,7 @@ import kodlamaio.hrms.core.utilities.validations.SentValidationMessageService;
 import kodlamaio.hrms.core.utilities.validations.TcKimlikNoValidationService;
 import kodlamaio.hrms.dataAccess.abstracts.JobSeekerDao;
 import kodlamaio.hrms.entities.concretes.JobSeeker;
+import kodlamaio.hrms.entities.dtos.JobSeekerCvDetailDto;
 
 @Service
 public class JobSeekerManager implements JobSeekerService {
@@ -35,8 +36,8 @@ public class JobSeekerManager implements JobSeekerService {
 	@Override
 	public Result add(JobSeeker jobSeeker) {
 
-		if (jobSeeker.getFirst_name() != "" && jobSeeker.getLast_name() != ""
-				&& jobSeeker.getBirth_date().toLocaleString() != "" && jobSeeker.getTcno() != ""
+		if (jobSeeker.getFirstName() != "" && jobSeeker.getLastName() != ""
+				&& jobSeeker.getBirthDate().toLocaleString() != "" && jobSeeker.getTcno() != ""
 				&& jobSeeker.getPassword() != "" && jobSeeker.getPasswordValidate() != "") {
 
 			if (this.findByEmail(jobSeeker).getData() != null) {
@@ -81,6 +82,11 @@ public class JobSeekerManager implements JobSeekerService {
 	public DataResult<JobSeeker> findByEmail(JobSeeker jobSeeker) {
 		return new SuccessDataResult<JobSeeker>(this.jobSeekerDao.findByEmail(jobSeeker.getEmail()),
 				"Job seekers listed");
+	}
+
+	@Override
+	public DataResult<List<JobSeekerCvDetailDto>> getJobSeekerWithExperienceDetails() {
+		return new SuccessDataResult<List<JobSeekerCvDetailDto>>(this.jobSeekerDao.getJobSeekerWithExperienceDetails(), "Job seekers listed");
 	}
 
 }

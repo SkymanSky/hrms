@@ -32,7 +32,7 @@ public class JobSeekerCvExperienceManager implements JobSeekerCvExperienceServic
 	@Override
 	public DataResult<List<JobSeekerCvExperience>> getJobSeekerAllExperiencesSortedByAsc(int jobSeekerid) {
 		
-		return new SuccessDataResult<List<JobSeekerCvExperience>>(this.jobSeekerCvExperienceDao.getJobSeekerAllExperiencesSortedByAsc(jobSeekerid));
+		return new SuccessDataResult<List<JobSeekerCvExperience>>(this.jobSeekerCvExperienceDao.getJobSeekerAllExperiencesSortedByAsc(jobSeekerid),"Job experiences listed.");
 	}
 
 }

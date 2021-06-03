@@ -30,7 +30,7 @@ public class JobSeekerCvSchoolManager implements JobSeekerCvSchoolService {
 	@Override
 	public DataResult<List<JobSeekerCvSchool>> getJobSeekerAllSchoolsSortedByAsc(int jobSeekerid) {
 		
-		return new SuccessDataResult<List<JobSeekerCvSchool>>(this.jobSeekerCvSchoolDao.getJobSeekerAllSchoolsSortedByAsc(jobSeekerid));
+		return new SuccessDataResult<List<JobSeekerCvSchool>>(this.jobSeekerCvSchoolDao.getJobSeekerAllSchoolsSortedByAsc(jobSeekerid),"Your schools listed.");
 	}
 
 }

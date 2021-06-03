@@ -47,6 +47,6 @@ public class JobSeekerController {
 		return this.jobSeekerService.add(jobSeeker);
 	}
 	
-	
+
 
 }
