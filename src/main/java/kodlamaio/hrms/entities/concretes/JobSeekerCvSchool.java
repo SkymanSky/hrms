@@ -31,6 +31,9 @@ public class JobSeekerCvSchool {
 	@Column(name="name")
 	private String name;
 	
+	@Column(name="deparment")
+	private String deparment;
+	
 	@Column(name="start_year")
 	private int startYear;
 	
