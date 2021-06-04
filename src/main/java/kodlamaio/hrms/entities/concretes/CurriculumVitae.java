@@ -44,8 +44,8 @@ public class CurriculumVitae {
 	@Column(name="cover_letter")
 	private String coverLetter;
 	
-	@OneToMany(mappedBy = "curriculumVitae")
-	private List<JobSeekerCvExperience> jobSeekerCvExperiences;
+//	@OneToMany(mappedBy = "curriculumVitae")
+//	private List<JobSeekerCvExperience> jobSeekerCvExperiences;
 	
 
 }

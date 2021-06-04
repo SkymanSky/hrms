@@ -30,8 +30,8 @@ public class JobSeekerCvExperience {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int id;
 	
-	//@Column(name="job_seeker_id")
-	//private int jobSeekerid;
+	@Column(name="job_seeker_id")
+	private int jobSeekerid;
 	
 	@Column(name="company_name")
 	private String companyName;
@@ -45,9 +45,9 @@ public class JobSeekerCvExperience {
 	@Column(name="end_year")
 	private int endYearExperience;
 	
-	@ManyToOne()
-	@JoinColumn(name="job_seeker_id")
-	private CurriculumVitae curriculumVitae;
+//	@ManyToOne()
+//	@JoinColumn(name="job_seeker_id")
+//	private CurriculumVitae curriculumVitae;
 
 
 }
