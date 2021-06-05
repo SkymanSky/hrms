@@ -1,5 +1,7 @@
 package kodlamaio.hrms.entities.concretes;
 
+
+
 import java.util.List;
 
 import javax.persistence.Column;
@@ -21,7 +23,8 @@ import lombok.NoArgsConstructor;
 @Table(name="curriculum_vitae")
 @AllArgsConstructor
 @NoArgsConstructor
-@JsonIgnoreProperties({"hibernateLazyInitializer","handler","products"})
+@JsonIgnoreProperties({"hibernateLazyInitializer","handler","jobSeekerCvExperiences","jobSeekerCvSchools", "jobSeekerCvLanguages"})
+
 public class CurriculumVitae {
 	
 	@Id
@@ -30,7 +33,7 @@ public class CurriculumVitae {
 	private int id;
 	
 	@Column(name="job_seeker_id")
-	private int jobSeekerid;
+	private int jobSeekerId;
 	
 	@Column(name="image_path")
 	private String imagePath;
@@ -44,8 +47,14 @@ public class CurriculumVitae {
 	@Column(name="cover_letter")
 	private String coverLetter;
 	
-//	@OneToMany(mappedBy = "curriculumVitae")
-//	private List<JobSeekerCvExperience> jobSeekerCvExperiences;
+	@OneToMany(mappedBy = "curriculumVitae")
+	private List<JobSeekerCvExperience> jobSeekerCvExperiences;
+	
+	@OneToMany(mappedBy = "curriculumVitae")
+	private List<JobSeekerCvSchool> jobSeekerCvSchools;
+	
+	@OneToMany(mappedBy = "curriculumVitae")
+	private List<JobSeekerCvLanguage> jobSeekerCvLanguages;
 	
 
 }

@@ -7,7 +7,6 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
-import javax.persistence.PrimaryKeyJoinColumn;
 import javax.persistence.Table;
 
 import lombok.AllArgsConstructor;
@@ -15,38 +14,31 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 @Data
+@Entity
+@Table(name="cv_languages")
 @AllArgsConstructor
 @NoArgsConstructor
-@Entity
-@Table(name="cv_schools")
-@PrimaryKeyJoinColumn(name="id")
 
-public class JobSeekerCvSchool {
+public class JobSeekerCvLanguage {
+	
 	@Id
-	@Column(name="id")
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	@Column(name="id")
 	private int id;
 	
 	@Column(name="job_seeker_id")
 	private int jobSeekerid;
 	
-	@Column(name="name")
+	@Column(name="language_name")
 	private String name;
-	
-	@Column(name="deparment")
-	private String deparment;
-	
-	@Column(name="start_year")
-	private int startYear;
-	
-	@Column(name="end_year")
-	private int endYear;
 	
 	//@Column(name="curriculum_vitae_id")
 	//private String curriculumVitaeId;
 	
+	@Column(name="level")
+	private String level;
+	
 	@ManyToOne()
 	@JoinColumn(name="curriculum_vitae_id")
 	private CurriculumVitae curriculumVitae;
-
 }

@@ -45,9 +45,12 @@ public class JobSeekerCvExperience {
 	@Column(name="end_year")
 	private int endYearExperience;
 	
-//	@ManyToOne()
-//	@JoinColumn(name="job_seeker_id")
-//	private CurriculumVitae curriculumVitae;
+	//@Column(name="curriculum_vitae_id")
+	//private String curriculumVitaeId;
+	
+	@ManyToOne()
+	@JoinColumn(name="curriculum_vitae_id")
+	private CurriculumVitae curriculumVitae;
 
 
 }
