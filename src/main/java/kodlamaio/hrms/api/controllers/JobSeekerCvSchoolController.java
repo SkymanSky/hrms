@@ -13,7 +13,6 @@ import kodlamaio.hrms.business.abstracts.JobSeekerCvSchoolService;
 import kodlamaio.hrms.core.utilities.results.DataResult;
 import kodlamaio.hrms.core.utilities.results.Result;
 import kodlamaio.hrms.entities.concretes.JobSeekerCvSchool;
-import kodlamaio.hrms.entities.concretes.Position;
 
 @RestController
 @RequestMapping("/api/jobSeekercvschoolcontroller")

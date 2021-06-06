@@ -7,6 +7,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import kodlamaio.hrms.business.abstracts.CurriculumVitaeService;
@@ -14,11 +15,12 @@ import kodlamaio.hrms.core.utilities.results.DataResult;
 import kodlamaio.hrms.core.utilities.results.Result;
 import kodlamaio.hrms.entities.concretes.CurriculumVitae;
 import kodlamaio.hrms.entities.concretes.JobSeekerCvLanguage;
+import kodlamaio.hrms.entities.dtos.JobSeekerCvDetailDto;
 
 @RestController
 @RequestMapping("api/cvs")
 public class CurriculumVitaeController {
-	
+
 	private CurriculumVitaeService curriculumVitaeService;
 
 	@Autowired
@@ -26,25 +28,26 @@ public class CurriculumVitaeController {
 		super();
 		this.curriculumVitaeService = curriculumVitaeService;
 	}
-	
+
 	@GetMapping("/getall")
-	public DataResult<List<CurriculumVitae>> getAll(){
+	public DataResult<List<CurriculumVitae>> getAll() {
 		return this.curriculumVitaeService.getall();
 	}
-	
-	@GetMapping("/getbyjobseekerid")
-	public DataResult<CurriculumVitae> findByJobSeekerId(int jobSeekerId){
+
+	@GetMapping("/findByJobSeekerId")
+	public DataResult<CurriculumVitae> findByJobSeekerId(@RequestParam int jobSeekerId) {
 		return this.curriculumVitaeService.findByJobSeekerId(jobSeekerId);
 	}
-	
-	@GetMapping("/getbyalljobseekerid")
-	public DataResult<List<CurriculumVitae>> getAllByJobSeekerId(int jobSeekerId){
-		return this.curriculumVitaeService.getAllByJobSeekerId(jobSeekerId);
+
+	@GetMapping("/getallbyjobseekerid")
+	public DataResult<List<JobSeekerCvDetailDto>> getByJobSeekerId(@RequestParam int jobSeekerId) {
+		return this.curriculumVitaeService.getByJobSeekerId(jobSeekerId);
 	}
-	
+
 	@PostMapping("/add")
-	public Result add(@RequestBody CurriculumVitae curriculumVitae, @RequestBody JobSeekerCvLanguage jobSeekerCvLanguage){
-		return this.curriculumVitaeService.add(curriculumVitae,jobSeekerCvLanguage);
+	public Result add(@RequestBody CurriculumVitae curriculumVitae,
+			@RequestBody JobSeekerCvLanguage jobSeekerCvLanguage) {
+		return this.curriculumVitaeService.add(curriculumVitae, jobSeekerCvLanguage);
 	}
 
 }

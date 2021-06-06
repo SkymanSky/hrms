@@ -14,7 +14,7 @@ import kodlamaio.hrms.dataAccess.abstracts.CurriculumVitaeDao;
 import kodlamaio.hrms.dataAccess.abstracts.JobSeekerCvLanguageDao;
 import kodlamaio.hrms.entities.concretes.CurriculumVitae;
 import kodlamaio.hrms.entities.concretes.JobSeekerCvLanguage;
-import kodlamaio.hrms.entities.concretes.Position;
+import kodlamaio.hrms.entities.dtos.JobSeekerCvDetailDto;
 
 @Service
 public class CurriculumVitaeManager implements CurriculumVitaeService {
@@ -49,10 +49,10 @@ public class CurriculumVitaeManager implements CurriculumVitaeService {
 		return new SuccessDataResult<CurriculumVitae>(this.curriculumVitaeDao.findByJobSeekerId(jobSeekerId),"Cvs listed") ;
 	}
 
+	
 	@Override
-	public DataResult<List<CurriculumVitae>> getAllByJobSeekerId(int jobSeekerId) {
-		return new SuccessDataResult<List<CurriculumVitae>>(this.curriculumVitaeDao.getAllByJobSeekerId(jobSeekerId),"Cv listed") ;
+	public DataResult<List<JobSeekerCvDetailDto>> getByJobSeekerId(int jobSeekerId) {
+		return new SuccessDataResult<List<JobSeekerCvDetailDto>>(this.curriculumVitaeDao.getByJobSeekerId(jobSeekerId),"Cv listed") ;
 	}
-	
-	
+
 }

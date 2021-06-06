@@ -7,6 +7,7 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
+import javax.persistence.PrimaryKeyJoinColumn;
 import javax.persistence.Table;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
@@ -17,12 +18,12 @@ import lombok.NoArgsConstructor;
 
 @Data
 @Entity
-@Table(name="cv_languages")
+@Table(name="cv_skills")
 @AllArgsConstructor
 @NoArgsConstructor
+@PrimaryKeyJoinColumn(name="id")
 @JsonIgnoreProperties({"hibernateLazyInitializer","handler","curriculumVitae"})
-
-public class JobSeekerCvLanguage {
+public class JobSeekerCvSkill {
 	
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -32,16 +33,18 @@ public class JobSeekerCvLanguage {
 	@Column(name="job_seeker_id")
 	private int jobSeekerid;
 	
-	@Column(name="language_name")
-	private String name;
+	@Column(name="programing_language")
+	private String programingLanguage;
+	
+	@Column(name="technology_name")
+	private String technologyName;
 	
 	//@Column(name="curriculum_vitae_id")
-	//private String curriculumVitaeId;
-	
-	@Column(name="level")
-	private String level;
+	//private int curriculumVitaeid;
 	
 	@ManyToOne()
 	@JoinColumn(name="curriculum_vitae_id")
 	private CurriculumVitae curriculumVitae;
+
+
 }

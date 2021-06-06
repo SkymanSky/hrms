@@ -4,8 +4,10 @@ package kodlamaio.hrms.entities.concretes;
 
 import java.util.List;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
@@ -19,17 +21,17 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 @Data
-@Entity
-@Table(name="curriculum_vitae")
 @AllArgsConstructor
 @NoArgsConstructor
-@JsonIgnoreProperties({"hibernateLazyInitializer","handler","jobSeekerCvExperiences","jobSeekerCvSchools", "jobSeekerCvLanguages"})
+@Table(name="curriculum_vitae")
+@Entity
+@JsonIgnoreProperties({"hibernateLazyInitializer","handler","curriculumVitae"})
 
 public class CurriculumVitae {
 	
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	@Column(name="id")
+	@Column(name="curriculum_vitae_id")
 	private int id;
 	
 	@Column(name="job_seeker_id")
@@ -47,7 +49,7 @@ public class CurriculumVitae {
 	@Column(name="cover_letter")
 	private String coverLetter;
 	
-	@OneToMany(mappedBy = "curriculumVitae")
+	@OneToMany(targetEntity = JobSeekerCvExperience.class, mappedBy = "curriculumVitae", cascade=CascadeType.ALL, fetch = FetchType.LAZY)
 	private List<JobSeekerCvExperience> jobSeekerCvExperiences;
 	
 	@OneToMany(mappedBy = "curriculumVitae")
@@ -56,5 +58,7 @@ public class CurriculumVitae {
 	@OneToMany(mappedBy = "curriculumVitae")
 	private List<JobSeekerCvLanguage> jobSeekerCvLanguages;
 	
+	@OneToMany(mappedBy="curriculumVitae")
+	private List<JobSeekerCvSkill> jobSeekerCvSkills;
 
 }

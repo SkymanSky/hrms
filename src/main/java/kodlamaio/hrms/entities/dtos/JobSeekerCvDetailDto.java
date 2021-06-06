@@ -8,14 +8,25 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 @NoArgsConstructor
 public class JobSeekerCvDetailDto {
-	//private int id;
+	
+	private int id;
 	private int jobSeekerid;
+
 	private String name;
-	private int startYear;
-	private int endYear;
+	//private String deparment;
+	//private int startYear;
+	//private int endYear;
+
 	private String companyName;
-	private String positionDescription;
 	private int startYearExperience;
 	private int endYearExperience;
+//	private String name;
+//	private int startYear;
+//	private int endYear;
+
+	//private List<JobSeekerCvExperience> jobSeekerCvExperineces;
+	// private List<JobSeekerCvLanguage> jobSeekerCvLanguages;
+	// private List<JobSeekerCvSchool> jobSeekerCvSchools;
+	// private List<JobSeekerCvSkill> jobSeekerCvSkills;
 
 }

@@ -13,7 +13,6 @@ import kodlamaio.hrms.business.abstracts.JobSeekerCvExperienceService;
 import kodlamaio.hrms.core.utilities.results.DataResult;
 import kodlamaio.hrms.core.utilities.results.Result;
 import kodlamaio.hrms.entities.concretes.JobSeekerCvExperience;
-import kodlamaio.hrms.entities.concretes.JobSeekerCvSchool;
 
 @RestController
 @RequestMapping("/api/jobseekercvexperiencecontroller")

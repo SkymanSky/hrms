@@ -20,7 +20,7 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 @NoArgsConstructor
 @Entity
-
+@JsonIgnoreProperties({"hibernateLazyInitializer","handler","curriculumVitae"})
 @Table(name="cv_experiences")
 @PrimaryKeyJoinColumn(name="id")
 public class JobSeekerCvExperience {
