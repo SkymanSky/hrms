@@ -1,6 +1,7 @@
 package kodlamaio.hrms.business.concretes;
 
 import java.time.LocalDate;
+import java.util.List;
 import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -57,6 +58,12 @@ public class PhotoManager implements PhotoService {
 			}
 		}
 		return new ErrorDataResult<Photo>(null, "Dosya yüklenemedi");
+	}
+
+	@Override
+	public DataResult<List<Photo>> getAll() {
+		
+		return new SuccessDataResult<List<Photo>>(this.photoDao.findAll(),"Photos listed.") ;
 	}
 
 }

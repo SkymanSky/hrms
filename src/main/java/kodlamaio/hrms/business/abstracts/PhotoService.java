@@ -1,5 +1,7 @@
 package kodlamaio.hrms.business.abstracts;
 
+import java.util.List;
+
 import org.springframework.web.multipart.MultipartFile;
 
 import kodlamaio.hrms.core.utilities.results.DataResult;
@@ -9,4 +11,5 @@ import kodlamaio.hrms.entities.concretes.Photo;
 public interface PhotoService {
 	Result add(Photo photo);
 	DataResult<Photo> upload(MultipartFile photo, int cvId);
+	DataResult<List<Photo>> getAll();
 }
