@@ -13,5 +13,6 @@ public interface JobSeekerService {
 	DataResult<List<JobSeeker>> getAll();
 	DataResult<JobSeeker> findByTcno(JobSeeker jobSeeker);
 	DataResult<JobSeeker> findByEmail(JobSeeker jobSeeker);
+	DataResult<JobSeeker> findByUserId(int userId);
 	DataResult<List<JobSeekerCvDetailDto>> getJobSeekerWithExperienceDetails();
 }

@@ -26,9 +26,9 @@ public class CloudinaryAdaptor implements CloudinaryService {
 	@Autowired
 	public CloudinaryAdaptor() {
 		Map<String, String> valuesMap = new HashMap<>();
-		valuesMap.put("cloud_name", "skymansky");
-		valuesMap.put("api_key", "545899925229753");
-		valuesMap.put("api_secret", "qZevVp5dUXVlVwX253txpFFEQM4");
+		valuesMap.put("cloud_name", "");
+		valuesMap.put("api_key", "");
+		valuesMap.put("api_secret", "");
 		cloudinary = new Cloudinary(valuesMap);
 	}
 

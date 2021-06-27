@@ -89,4 +89,10 @@ public class JobSeekerManager implements JobSeekerService {
 		return new SuccessDataResult<List<JobSeekerCvDetailDto>>(this.jobSeekerDao.getJobSeekerWithExperienceDetails(), "Job seekers listed");
 	}
 
+	@Override
+	public DataResult<JobSeeker> findByUserId(int userId) {
+		return new SuccessDataResult<JobSeeker>(this.jobSeekerDao.findByJobSeekerId(userId),
+				"Job seekers listed");
+	}
+
 }

@@ -11,7 +11,7 @@ import kodlamaio.hrms.entities.dtos.JobSeekerCvDetailDto;
 public interface CurriculumVitaeService {
 	Result add(CurriculumVitae curriculumVitae, JobSeekerCvLanguage jobSeekerCVLanguage);
 	DataResult<List<CurriculumVitae>> getall();
-	DataResult<CurriculumVitae> findByJobSeekerId(int jobSeekerId);
+	DataResult<List<CurriculumVitae>> findByJobSeekerId(int jobSeekerId);
 	DataResult<List<JobSeekerCvDetailDto>> getByJobSeekerId(int jobSeekerId);
 	
 }
