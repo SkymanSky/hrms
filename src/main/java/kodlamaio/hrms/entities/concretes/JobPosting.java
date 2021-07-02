@@ -13,6 +13,8 @@ import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -23,7 +25,7 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 @NoArgsConstructor
 @Inheritance(strategy = InheritanceType.JOINED)
-
+@JsonIgnoreProperties({"hibernateLazyInitializer","handler","jobPosting"})
 public class JobPosting {
 	
 	@Id
@@ -61,6 +63,12 @@ public class JobPosting {
 	@Column(name="job_post_date")
 	private Date jobPostDate;
 	
+	//@Column(name="work_style")
+	//private String workStyle;
+	
+	//@Column(name="job_type")
+	//private String jobType;
+	
 	@ManyToOne()
 	@JoinColumn(name="user_id")
 	private Employer employer;
@@ -68,6 +76,14 @@ public class JobPosting {
 	@ManyToOne()
 	@JoinColumn(name="position_id")
 	private Position position;
+	
+	@ManyToOne
+	@JoinColumn(name="work_style")
+	private WorkStyle workStyle;
+	
+	@ManyToOne
+	@JoinColumn(name="job_type")
+	private JobType jobType;
 	
 	
 	

@@ -5,9 +5,12 @@ import javax.persistence.Entity;
 import javax.persistence.PrimaryKeyJoinColumn;
 import javax.persistence.Table;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+
 @Entity
 @Table(name="employers")
 @PrimaryKeyJoinColumn(name="user_id")
+@JsonIgnoreProperties({"hibernateLazyInitializer","handler","jobPosting"})
 public class Employer extends User{
 	
 	@Column(name="user_id",insertable = false,updatable = false)

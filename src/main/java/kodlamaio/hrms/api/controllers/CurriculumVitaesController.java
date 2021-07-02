@@ -21,12 +21,12 @@ import kodlamaio.hrms.entities.dtos.JobSeekerCvDetailDto;
 @RestController
 @RequestMapping("api/cvs")
 @CrossOrigin
-public class CurriculumVitaeController {
+public class CurriculumVitaesController {
 
 	private CurriculumVitaeService curriculumVitaeService;
 
 	@Autowired
-	public CurriculumVitaeController(CurriculumVitaeService curriculumVitaeService) {
+	public CurriculumVitaesController(CurriculumVitaeService curriculumVitaeService) {
 		super();
 		this.curriculumVitaeService = curriculumVitaeService;
 	}
