@@ -93,6 +93,12 @@ public class JobPostingManager implements JobPostingService {
 		this.jobPostingDao.updateJobPostingStatusToInactive(id);
 		return new SuccessResult("JobPosting is closed.");
 	}
+
+	@Override
+	public Result updateJobPostingStatusToActive(int id) {
+		this.jobPostingDao.updateJobPostingStatusToActive(id);
+		return new SuccessResult("JobPosting is opened");
+	}
 	
 
 }

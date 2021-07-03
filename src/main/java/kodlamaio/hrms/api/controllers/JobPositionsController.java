@@ -77,5 +77,9 @@ public class JobPositionsController {
 		
 	}
 	
+	@PostMapping("/updateJobPostingStatusToACtive")
+	public Result updateJobPostingStatusToActive(@RequestParam("id") int id) {
+		return this.jobPostingService.updateJobPostingStatusToActive(id);
+	}
 	
 }

@@ -28,5 +28,10 @@ public interface JobPostingDao extends JpaRepository<JobPosting,Integer>{
     @Modifying
 	@Query("Update JobPosting set jobPostingStatus=false where id=:id")
 	void updateJobPostingStatusToInactive(int id);
+	
+	@Transactional
+    @Modifying
+	@Query("Update JobPosting set jobPostingStatus=true where id=:id")
+	void updateJobPostingStatusToActive(int id);
 
 }

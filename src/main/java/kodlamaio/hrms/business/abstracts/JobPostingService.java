@@ -10,6 +10,7 @@ public interface JobPostingService {
 	Result add(JobPosting jobPosting);
 	Result update(JobPosting jobPosting);
 	Result updateJobPostingStatusToInactive(int id);
+	Result updateJobPostingStatusToActive(int id);
 	DataResult<List<JobPosting>> getAll();
 	DataResult<List<JobPosting>> getAllSortedDesc();
 	DataResult<List<JobPosting>> getAllSortedAsc();
