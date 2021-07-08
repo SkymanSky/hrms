@@ -1,5 +1,7 @@
 package kodlamaio.hrms.business.concretes;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -29,9 +31,17 @@ public class JobSeekerCvSkillManager implements JobSeekerCvSkillService{
 	}
 
 	@Override
-	public DataResult<JobSeekerCvSkill> findByJobSeekerId(int jobSeekerid) {
+	public DataResult<List<JobSeekerCvSkill>> findByJobSeekerId(int jobSeekerid) {
 		
-		return new SuccessDataResult<JobSeekerCvSkill>(this.jobSeekerCvSkillDao.findByJobSeekerId(jobSeekerid));
+		return new SuccessDataResult<List<JobSeekerCvSkill>>(this.jobSeekerCvSkillDao.findByJobSeekerId(jobSeekerid),"Yetenekler listelendi.");
+	}
+
+	@Override
+	public Result update(JobSeekerCvSkill jobSeekerCvSkill) {
+		this.jobSeekerCvSkillDao.save(jobSeekerCvSkill);
+		return new SuccessResult("Job Experience updateed");
+		
+		
 	}
 	
 	

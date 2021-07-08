@@ -1,5 +1,7 @@
 package kodlamaio.hrms.api.controllers;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -29,8 +31,13 @@ public class JobSeekerCvSkillController {
 		return this.jobSeekerCvSkillService.add(jobSeekerCvSkill);
 	}
 	
+	@PostMapping("/update")
+	public Result update(@RequestBody JobSeekerCvSkill jobSeekerCvSkill) {
+		return this.jobSeekerCvSkillService.update(jobSeekerCvSkill);
+	}
+	
 	@GetMapping("/findByJobSeekerId")
-	public DataResult<JobSeekerCvSkill> findByJobSeekerId(int jobSeekerid){
+	public DataResult<List<JobSeekerCvSkill>> findByJobSeekerId(int jobSeekerid){
 		return this.jobSeekerCvSkillService.findByJobSeekerId(jobSeekerid);
 	}
 }

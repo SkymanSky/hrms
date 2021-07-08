@@ -12,9 +12,9 @@ import kodlamaio.hrms.entities.dtos.JobSeekerCvDetailDto;
 public interface CurriculumVitaeDao extends JpaRepository<CurriculumVitae, Integer> {
 
 	@Query("From CurriculumVitae where jobSeekerId=:jobSeekerId")
-	List<CurriculumVitae> findByJobSeekerId(int jobSeekerId);
+	CurriculumVitae findByJobSeekerId(int jobSeekerId);
 	
-	@Query("Select distinct new kodlamaio.hrms.entities.dtos.JobSeekerCvDetailDto(cv.id,cv.jobSeekerId, jss.name, jse.companyName,jse.startYearExperience,jse.endYearExperience)"
+	@Query("Select new kodlamaio.hrms.entities.dtos.JobSeekerCvDetailDto(cv.id,cv.jobSeekerId, jss.name, jse.companyName,jse.startYearExperience,jse.endYearExperience)"
 			+ " From CurriculumVitae cv"
 			+ " Inner Join cv.jobSeekerCvSchools jss"
 			+ " Inner Join cv.jobSeekerCvExperiences jse"

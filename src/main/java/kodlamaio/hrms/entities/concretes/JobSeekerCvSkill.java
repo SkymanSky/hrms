@@ -11,6 +11,8 @@ import javax.persistence.PrimaryKeyJoinColumn;
 import javax.persistence.Table;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.annotation.JsonProperty.Access;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -43,6 +45,7 @@ public class JobSeekerCvSkill {
 	//private int curriculumVitaeid;
 	
 	@ManyToOne()
+	@JsonProperty(access = Access.WRITE_ONLY)
 	@JoinColumn(name="curriculum_vitae_id")
 	private CurriculumVitae curriculumVitae;
 

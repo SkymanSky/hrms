@@ -23,7 +23,7 @@ import lombok.NoArgsConstructor;
 @Entity
 @Table(name="cv_schools")
 @PrimaryKeyJoinColumn(name="id")
-@JsonIgnoreProperties({"hibernateLazyInitializer","handler","curriculumVitae"})
+@JsonIgnoreProperties({"hibernateLazyInitializer","handler"})
 
 public class JobSeekerCvSchool {
 	@Id

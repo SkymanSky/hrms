@@ -42,7 +42,7 @@ public class CurriculumVitaesController {
 	}*/
 	
 	@GetMapping("/findByJobSeekerId")
-	public DataResult<List<CurriculumVitae>> findByJobSeekerId(@RequestParam int jobSeekerId) {
+	public DataResult<CurriculumVitae> findByJobSeekerId(@RequestParam int jobSeekerId) {
 		return this.curriculumVitaeService.findByJobSeekerId(jobSeekerId);
 	}
 
@@ -55,6 +55,11 @@ public class CurriculumVitaesController {
 	public Result add(@RequestBody CurriculumVitae curriculumVitae,
 			@RequestBody JobSeekerCvLanguage jobSeekerCvLanguage) {
 		return this.curriculumVitaeService.add(curriculumVitae, jobSeekerCvLanguage);
+	}
+	
+	@PostMapping("/update")
+	public Result add(@RequestBody CurriculumVitae curriculumVitae) {
+		return this.curriculumVitaeService.update(curriculumVitae);
 	}
 
 }

@@ -44,15 +44,21 @@ public class CurriculumVitaeManager implements CurriculumVitaeService {
 	}
 
 	@Override
-	public DataResult<List<CurriculumVitae>> findByJobSeekerId(int jobSeekerId) {
+	public DataResult<CurriculumVitae> findByJobSeekerId(int jobSeekerId) {
 		
-		return new SuccessDataResult<List<CurriculumVitae>>(this.curriculumVitaeDao.findByJobSeekerId(jobSeekerId),"Cvs listed") ;
+		return new SuccessDataResult<CurriculumVitae>(this.curriculumVitaeDao.findByJobSeekerId(jobSeekerId),"Cvs listed") ;
 	}
 
 	
 	@Override
 	public DataResult<List<JobSeekerCvDetailDto>> getByJobSeekerId(int jobSeekerId) {
 		return new SuccessDataResult<List<JobSeekerCvDetailDto>>(this.curriculumVitaeDao.getByJobSeekerId(jobSeekerId),"Cv listed") ;
+	}
+
+	@Override
+	public Result update(CurriculumVitae curriculumVitae) {
+		this.curriculumVitaeDao.save(curriculumVitae);
+		return new SuccessResult("Cv updated.");
 	}
 
 }
